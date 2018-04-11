@@ -28,6 +28,10 @@ class RoomList extends Component {
     });
   }
 
+  selectRoom(room) {
+    this.props.activeRoom(room);
+  }
+
 
   render() {
     const roomForm = (
@@ -38,7 +42,7 @@ class RoomList extends Component {
     );
 
     const roomList = this.state.rooms.map((room) =>
-      <li key={room.key}>{room.name}</li>
+      <li key={room.key} onClick={(e) => this.selectRoom(room, e)}>{room.name}</li>
     );
 
     return(
